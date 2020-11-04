@@ -45,7 +45,7 @@ const StyledPhoneContainer = styled.div`
 
 export default function Pathfinding() {
   return (
-    <section>
+    <section id="Portfolio">
       <Gridcontainer>
         <SectionHeader>Portfolio</SectionHeader>
         <StyledRow>

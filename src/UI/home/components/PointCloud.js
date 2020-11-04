@@ -20,6 +20,7 @@ export default function PointCloud() {
     canvas.height = window.innerHeight;
     const gl = canvas.getContext('webgl');
     if (!gl) {
+      return;
       throw new Error('WebGL not supported');
     }
 
