@@ -10,7 +10,7 @@ const StyledHeaderContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 0;
   position: absolute;
   z-index: 99;
   top: 0;
@@ -43,6 +43,12 @@ export default function Header() {
 const StyledMenuItem = styled.li`
   display: block;
   margin: 0 2rem;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 const StyledMenuAnchor = styled.a`

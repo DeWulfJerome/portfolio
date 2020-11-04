@@ -20,7 +20,7 @@ const StyledSpacer = styled.div`
       case SpacerSize.huge:
         return '4rem';
       default:
-        return '1rem';
+        return props.size;
     }
   }};
 `;

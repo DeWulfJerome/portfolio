@@ -2,7 +2,8 @@ const GeneralStyles = {
   colors: {
     blue: {
       dark: '#061444',
-      medium: '#061BBB'
+      medium: '#061BBB',
+      light: '#F5F8FB'
     },
     white: '#fff',
     grey: {

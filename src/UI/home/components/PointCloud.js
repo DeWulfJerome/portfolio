@@ -6,6 +6,8 @@ const StyledCanvas = styled.canvas`
   position: absolute;
   right: 0;
   top: 0;
+  left: 0;
+  bottom: 0;
   z-index: -1;
 `;
 
@@ -14,7 +16,7 @@ export default function PointCloud() {
 
   useEffect(() => {
     const canvas = canvasEl.current;
-    canvas.width = window.innerWidth;
+    canvas.width = 1200;
     canvas.height = window.innerHeight;
     const gl = canvas.getContext('webgl');
     if (!gl) {
