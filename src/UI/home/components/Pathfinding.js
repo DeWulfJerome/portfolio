@@ -17,8 +17,6 @@ const StyledRow = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  height: 100vh;
-  min-height: 600px;
 `;
 
 const StyledPhoneImage = styled.img`
@@ -41,6 +39,13 @@ const StyledBrowserContainer = styled.div`
 const StyledPhoneContainer = styled.div`
   z-index: 10;
   position: relative;
+`;
+
+const StyledIframe = styled.iframe`
+  height: 100%;
+  width: 100%;
+  border: none;
+  overflow: hidden;
 `;
 
 export default function Pathfinding() {
@@ -69,9 +74,10 @@ export default function Pathfinding() {
           <div>
             <StyledBrowserContainer>
               <Browser>
-                <StyledBrowserImage
+                {/* <StyledBrowserImage
                   src={pathfindingBrowser}
-                ></StyledBrowserImage>
+                ></StyledBrowserImage> */}
+                <StyledIframe src="https://pathfinding.jeromedewulf.be"></StyledIframe>
               </Browser>
             </StyledBrowserContainer>
             <Spacer size={'25rem'}></Spacer>
