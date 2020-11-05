@@ -1,14 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-  DotGroup,
-  Dot
-} from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import Browser from './Browser';
 import H3 from './H3';
@@ -16,7 +8,45 @@ import P from './P';
 import Button from './Button';
 import Spacer, { SpacerSize } from './Spacer';
 
-import pathfindingBrowser from '../../../assets/media/pathfindingBrowser.png';
+import leroux from '../../../assets/media/leroux.jpg';
+import makeawish from '../../../assets/media/makeawish.jpg';
+import ugly from '../../../assets/media/ugly.jpg';
+
+const websites = [
+  {
+    title: 'Stephane Leroux',
+    content: [
+      'Website for a Belgian chocolate artist',
+      'Design & Development @ Flux'
+    ],
+    buttonText: 'Go to site',
+    buttonUrl: 'https://fluxwebdesign3.be/customer/leroux/',
+    browserImage: leroux
+  },
+  {
+    title: 'Ugly',
+    content: [
+      'Website for an Antwerp base real estate agency',
+      'Online booking of visits',
+      'Custom integration with their ERP',
+      'Design & Development @ Flux'
+    ],
+    buttonText: 'Go to site',
+    buttonUrl: 'https://ugly.be',
+    browserImage: ugly
+  },
+  {
+    title: 'Make A Wish',
+    content: [
+      'Website for the Flandrian division of Make A Wish',
+      'Webshop and custom donation module with Mollie',
+      'Design & Development @ Flux'
+    ],
+    buttonText: 'Go to site',
+    buttonUrl: 'https://makeawish.be/home',
+    browserImage: makeawish
+  }
+];
 
 export default function WebsiteSlider() {
   return (
@@ -28,15 +58,13 @@ export default function WebsiteSlider() {
         totalSlides={3}
       >
         <Slider className="carouselSlider">
-          <Slide index={0}>
-            <WebsiteSlide></WebsiteSlide>
-          </Slide>
-          <Slide index={1}>
-            <WebsiteSlide></WebsiteSlide>
-          </Slide>
-          <Slide index={2}>
-            <WebsiteSlide></WebsiteSlide>
-          </Slide>
+          {websites.map((site, index) => {
+            return (
+              <Slide index={index}>
+                <WebsiteSlide siteData={site}></WebsiteSlide>
+              </Slide>
+            );
+          })}
         </Slider>
         <DotGroup className="dotGroup"></DotGroup>
       </CarouselProvider>
@@ -72,23 +100,31 @@ const StyledBrowserImage = styled.img`
   width: auto;
 `;
 
-const WebsiteSlide = () => {
+const WebsiteSlide = ({ siteData }) => {
   return (
     <StyledWebsiteSlide>
       <div>
         <Spacer size={'22rem'}></Spacer>
         <StyledCard>
-          <H3>Stephane Leroux</H3>
+          <H3>{siteData.title}</H3>
           <Spacer size={SpacerSize.small}></Spacer>
-          <P>Website for a Belgian chocolate artist</P>
-          <P>Design & Development @ Flux</P>
+          {siteData.content.map((line) => {
+            return <P>{line}</P>;
+          })}
           <Spacer size={SpacerSize.small}></Spacer>
-          <Button text="Go to site"></Button>
+          {siteData.buttonText && (
+            <Button
+              onButtonClick={() => {
+                window.open(siteData.buttonUrl);
+              }}
+              text={siteData.buttonText}
+            ></Button>
+          )}
         </StyledCard>
       </div>
       <StyledBrowserContainer>
         <Browser small>
-          <StyledBrowserImage src={pathfindingBrowser}></StyledBrowserImage>
+          <StyledBrowserImage src={siteData.browserImage}></StyledBrowserImage>
         </Browser>
       </StyledBrowserContainer>
     </StyledWebsiteSlide>
