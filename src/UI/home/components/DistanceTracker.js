@@ -20,14 +20,28 @@ const StyledRow = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const StyledWatchColumn = styled.div`
   width: 40%;
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
 `;
 
 const StyledTextColumn = styled.div`
   width: 60%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export default function DistanceTracker() {
