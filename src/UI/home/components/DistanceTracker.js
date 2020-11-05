@@ -70,6 +70,7 @@ export default function DistanceTracker() {
             <P darkBackground>set points on my home golf course.</P>
             <Spacer size={SpacerSize.small}></Spacer>
             <P darkBackground>#tizen#vanillajavascript</P>
+            github
           </StyledTextColumn>
         </StyledRow>
         <Spacer size={GeneralStyles.padding.huge}></Spacer>

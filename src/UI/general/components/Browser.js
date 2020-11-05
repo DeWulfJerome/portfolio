@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import GeneralStyles from '../../../assets/styles/general-styles';
 
 const StyledBrowser = styled.figure`
-  width: 1011px;
-  height: 596px;
+  width: ${(props) => (props.small ? '800px' : '1011px')};
+  height: ${(props) => (props.small ? '472px' : '596px')};
   border-radius: 10px;
   background: ${GeneralStyles.colors.blue.light};
   box-shadow: 10px 30px 79px rgba(0, 0, 0, 0.31);
+  overflow: hidden;
   @media (max-width: 768px) {
     width: 763px;
     height: 450px;
@@ -59,9 +60,9 @@ const StyledScrollbar = styled.div`
   background-color: rgba(255, 255, 255, 0.3);
 `;
 
-export default function Browser({ children }) {
+export default function Browser({ children, small }) {
   return (
-    <StyledBrowser>
+    <StyledBrowser small={small}>
       <StyledBrowserControlContainer>
         <StyledBrowserDot color="red"></StyledBrowserDot>
         <StyledBrowserDot color="yellow"></StyledBrowserDot>
