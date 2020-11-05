@@ -15,12 +15,13 @@ code {
 }
 
 .carouselProvider .carouselSlider li {
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .carousel__slide--hidden {
   filter: blur(7px);
   opacity: 0.25;
+  transform: scale(0.8);
 }
 
 .dotGroup {
