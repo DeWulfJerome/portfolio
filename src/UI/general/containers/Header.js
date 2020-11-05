@@ -3,6 +3,7 @@ import GridContainer from '../components/Gridcontainer';
 import Logo, { LogoSizes } from '../components/Logo';
 import styled from 'styled-components';
 import GeneralStyles from '../../../assets/styles/general-styles';
+import GridOverlay from '../components/GridOverlay';
 
 const StyledHeaderContainer = styled.div`
   display: flex;
@@ -11,14 +12,20 @@ const StyledHeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  position: absolute;
+
   z-index: 99;
-  top: 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledMenuList = styled.ul`
   display: flex;
   flex-direction: row;
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 export default function Header() {
@@ -35,6 +42,7 @@ export default function Header() {
             </StyledMenuList>
           </nav>
         </StyledHeaderContainer>
+        <GridOverlay></GridOverlay>
       </GridContainer>
     </header>
   );

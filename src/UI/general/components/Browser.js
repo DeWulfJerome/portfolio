@@ -8,6 +8,10 @@ const StyledBrowser = styled.figure`
   border-radius: 10px;
   background: ${GeneralStyles.colors.blue.light};
   box-shadow: 10px 30px 79px rgba(0, 0, 0, 0.31);
+  @media (max-width: 768px) {
+    width: 763px;
+    height: 450px;
+  }
 `;
 
 const StyledBrowserControlContainer = styled.div`

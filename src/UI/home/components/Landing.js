@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../general/components/Button';
 import Gridcontainer from '../../general/components/Gridcontainer';
@@ -10,18 +10,28 @@ import PointCloud from './PointCloud';
 import GridOverlay from '../../general/components/GridOverlay';
 
 const StyledLandingContainer = styled.div`
-  height: 100vh;
-  min-height: 600px;
+  min-height: ${(props) => props.windowHeight + 'px'};
+  margin-top: -100px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
 `;
 
 export default function Landing() {
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setWindowHeight(window.innerHeight);
+    });
+
+    return window.removeEventListener('resize', window);
+  }, [windowHeight]);
   return (
     <section>
       <Gridcontainer>
-        <StyledLandingContainer>
+        <StyledLandingContainer windowHeight={windowHeight}>
           <div>
             <H3>Hi I'm</H3>
             <H1>Jerome De Wulf</H1>

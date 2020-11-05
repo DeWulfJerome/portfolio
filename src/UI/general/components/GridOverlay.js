@@ -31,6 +31,7 @@ const StyledGridOverlay = styled.div`
 
   @media (max-width: 768px) {
     max-width: 100%;
+    grid: 1fr / repeat(4, 1fr);
   }
 `;
 
@@ -78,6 +79,16 @@ const StyledGridLine = styled.div`
     right: 0;
     height: 100%;
     position: absolute;
+  }
+  @media (max-width: 768px) {
+    &:first-child {
+      opacity: 0;
+    }
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+      display: none;
+    }
   }
 `;
 

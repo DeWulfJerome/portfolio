@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { useMediaQuery } from '@react-hook/media-query';
 import styled from 'styled-components';
 import { vec3, mat4 } from 'gl-matrix';
 
@@ -13,10 +14,16 @@ const StyledCanvas = styled.canvas`
 
 export default function PointCloud() {
   const canvasEl = useRef(null);
+  const tabletSizeReached = useMediaQuery('only screen and (max-width: 768px)');
+  const [animationId, setAnimationId] = useState(undefined);
 
   useEffect(() => {
+    if (animationId) {
+      window.cancelAnimationFrame(animationId);
+    }
     const canvas = canvasEl.current;
-    canvas.width = 1200;
+    console.log(tabletSizeReached);
+    canvas.width = tabletSizeReached ? window.innerWidth : 1200;
     canvas.height = window.innerHeight;
     const gl = canvas.getContext('webgl');
     if (!gl) {
@@ -37,7 +44,7 @@ export default function PointCloud() {
     }
 
     // create vertexdata
-    const vertexData = spherePointCloud(9000);
+    const vertexData = spherePointCloud(tabletSizeReached ? 4000 : 9000);
 
     //create vertex buffer
     const positionBuffer = gl.createBuffer();
@@ -122,7 +129,8 @@ export default function PointCloud() {
     mat4.invert(viewMatrix, viewMatrix);
 
     function animate() {
-      requestAnimationFrame(animate);
+      const requestId = requestAnimationFrame(animate);
+      setAnimationId(requestId);
       mat4.rotateY(modelMatrix, modelMatrix, 0.003);
       mat4.rotateX(modelMatrix, modelMatrix, 0.001);
 
@@ -134,6 +142,6 @@ export default function PointCloud() {
     }
 
     animate();
-  }, [canvasEl]);
+  }, [canvasEl, tabletSizeReached]);
   return <StyledCanvas ref={canvasEl}></StyledCanvas>;
 }

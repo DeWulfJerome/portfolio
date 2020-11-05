@@ -5,6 +5,7 @@ const StyleSectionheader = styled.h2`
   font-size: 100px;
   top: 0;
   left: -100px;
+  right: 0;
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;

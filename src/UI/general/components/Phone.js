@@ -16,6 +16,12 @@ const StyledPhone = styled.figure`
   user-select: none;
   font-size: 16px;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 400px;
+    border-radius: 26px;
+  }
 `;
 
 const StylePhoneContent = styled.div`
@@ -24,6 +30,10 @@ const StylePhoneContent = styled.div`
   border-radius: 34px;
   -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
   background: #fff;
+
+  @media (max-width: 768px) {
+    border-radius: 26px;
+  }
 `;
 
 export default function Phone({ children }) {

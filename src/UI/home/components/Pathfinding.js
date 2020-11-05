@@ -17,6 +17,15 @@ const StyledRow = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const StyledTextContainer = styled.div`
+  @media (max-width: 768px) {
+    align-self: flex-start;
+  }
 `;
 
 const StyledPhoneImage = styled.img`
@@ -34,11 +43,37 @@ const StyledBrowserContainer = styled.div`
   top: 0;
   right: -450px;
   z-index: 9;
+
+  @media (max-width: 1200px) {
+    right: -650px;
+  }
+
+  @media (max-width: 1000px) {
+    right: -850px;
+  }
+
+  @media (max-width: 768px) {
+    right: auto;
+    left: 42%;
+    top: 230px;
+  }
 `;
 
 const StyledPhoneContainer = styled.div`
+  margin-top: 23rem;
   z-index: 10;
   position: relative;
+  @media (max-width: 1200px) {
+    margin-top: 20rem;
+  }
+
+  @media (max-width: 1000px) {
+    margin-top: 15rem;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 5rem;
+  }
 `;
 
 const StyledIframe = styled.iframe`
@@ -54,7 +89,7 @@ export default function Pathfinding() {
       <Gridcontainer>
         <SectionHeader>Portfolio</SectionHeader>
         <StyledRow>
-          <div>
+          <StyledTextContainer>
             <H3>Pathfinding visualizer</H3>
             <Spacer size={SpacerSize.medium}></Spacer>
             <P>An application I built to better understand how</P>
@@ -70,17 +105,15 @@ export default function Pathfinding() {
                 window.open('https://pathfinding.jeromedewulf.be');
               }}
             ></Button>
-          </div>
+          </StyledTextContainer>
           <div>
             <StyledBrowserContainer>
               <Browser>
-                {/* <StyledBrowserImage
+                <StyledBrowserImage
                   src={pathfindingBrowser}
-                ></StyledBrowserImage> */}
-                <StyledIframe src="https://pathfinding.jeromedewulf.be"></StyledIframe>
+                ></StyledBrowserImage>
               </Browser>
             </StyledBrowserContainer>
-            <Spacer size={'25rem'}></Spacer>
             <StyledPhoneContainer>
               <Phone>
                 <StyledPhoneImage src={pathfindingPhone}></StyledPhoneImage>
