@@ -74,7 +74,8 @@ export default function WebsiteSlider() {
 
 const StyledCard = styled.div`
   background: radial-gradient(
-    rgba(202, 198, 233, 0.81),
+    farthest-corner at 100px 200px,
+    rgba(202, 198, 233, 0.81) 22%,
     rgba(255, 255, 255, 0.96)
   );
   border-radius: 40px;
