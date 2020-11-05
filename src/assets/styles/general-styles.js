@@ -10,6 +10,12 @@ const GeneralStyles = {
       gridLines: '#ECECEC',
       gridLinesDarkBackground: 'rgba(236,236,236,.15)'
     }
+  },
+  padding: {
+    huge: '8rem',
+    large: '3rem',
+    medium: '2rem',
+    small: '1rem'
   }
 };
 

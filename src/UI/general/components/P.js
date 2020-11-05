@@ -4,7 +4,7 @@ import GeneralStyles from '../../../assets/styles/general-styles';
 
 const StyledP = styled.p`
   font-size: 20px;
-  font-weight: regular;
+  font-weight: normal;
   margin: 0;
   color: ${(props) =>
     props.darkBackground

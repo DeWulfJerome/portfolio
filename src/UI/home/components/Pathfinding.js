@@ -11,6 +11,7 @@ import Phone from '../../general/components/Phone';
 import Browser from '../../general/components/Browser';
 import pathfindingPhone from '../../../assets/media/pathfindingPhone.png';
 import pathfindingBrowser from '../../../assets/media/pathfindingBrowser.png';
+import GeneralStyles from '../../../assets/styles/general-styles';
 
 const StyledRow = styled.div`
   display: flex;
@@ -76,13 +77,6 @@ const StyledPhoneContainer = styled.div`
   }
 `;
 
-const StyledIframe = styled.iframe`
-  height: 100%;
-  width: 100%;
-  border: none;
-  overflow: hidden;
-`;
-
 export default function Pathfinding() {
   return (
     <section id="Portfolio">
@@ -121,6 +115,7 @@ export default function Pathfinding() {
             </StyledPhoneContainer>
           </div>
         </StyledRow>
+        <Spacer size={GeneralStyles.padding.huge}></Spacer>
         <GridOverlay></GridOverlay>
       </Gridcontainer>
     </section>

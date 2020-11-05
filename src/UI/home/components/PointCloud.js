@@ -28,7 +28,6 @@ export default function PointCloud() {
     const gl = canvas.getContext('webgl');
     if (!gl) {
       return;
-      throw new Error('WebGL not supported');
     }
 
     function spherePointCloud(pointCount) {
