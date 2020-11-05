@@ -5,6 +5,11 @@ import styled from 'styled-components';
 import GeneralStyles from '../../../assets/styles/general-styles';
 import GridOverlay from '../components/GridOverlay';
 
+const StyledHeader = styled.header`
+  position: relative;
+  opacity: 99;
+`;
+
 const StyledHeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -12,9 +17,7 @@ const StyledHeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-
   z-index: 99;
-
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -30,7 +33,7 @@ const StyledMenuList = styled.ul`
 
 export default function Header() {
   return (
-    <header>
+    <StyledHeader>
       <GridContainer>
         <StyledHeaderContainer>
           <Logo size={LogoSizes.medium}></Logo>
@@ -44,7 +47,7 @@ export default function Header() {
         </StyledHeaderContainer>
         <GridOverlay></GridOverlay>
       </GridContainer>
-    </header>
+    </StyledHeader>
   );
 }
 

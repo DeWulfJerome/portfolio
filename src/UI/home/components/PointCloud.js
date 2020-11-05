@@ -24,7 +24,7 @@ export default function PointCloud() {
     const canvas = canvasEl.current;
     console.log(tabletSizeReached);
     canvas.width = tabletSizeReached ? window.innerWidth : 1200;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight - 120;
     const gl = canvas.getContext('webgl');
     if (!gl) {
       return;
@@ -125,7 +125,11 @@ export default function PointCloud() {
     const mvMatrix = mat4.create();
     const mvpMatrix = mat4.create();
     mat4.translate(modelMatrix, modelMatrix, [0, 0, 0]);
-    mat4.translate(viewMatrix, viewMatrix, [0, 0.1, 2.5]);
+    mat4.translate(viewMatrix, viewMatrix, [
+      0,
+      0.1,
+      tabletSizeReached ? 2.5 : 2
+    ]);
     mat4.invert(viewMatrix, viewMatrix);
 
     function animate() {

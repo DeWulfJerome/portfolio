@@ -16,7 +16,7 @@ const StyledLogo = styled.img`
       case LogoSizes.small:
         return '40px';
       case LogoSizes.medium:
-        return '80px';
+        return '70px';
       case LogoSizes.large:
         return '160px';
       case LogoSizes.huge:

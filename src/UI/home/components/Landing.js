@@ -10,8 +10,7 @@ import PointCloud from './PointCloud';
 import GridOverlay from '../../general/components/GridOverlay';
 
 const StyledLandingContainer = styled.div`
-  min-height: ${(props) => props.windowHeight + 'px'};
-  margin-top: -100px;
+  min-height: ${(props) => props.windowHeight - 120 + 'px'};
   display: flex;
   flex-direction: row;
   align-items: center;
