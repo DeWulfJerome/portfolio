@@ -6,6 +6,8 @@ const StyledH1 = styled.h1`
   font-size: 50px;
   font-weight: bold;
   margin: 0.5rem 0;
+  line-height: 1;
+  margin-bottom: 1rem;
   color: ${(props) =>
     props.darkBackground
       ? GeneralStyles.colors.white

@@ -85,12 +85,11 @@ export default function Pathfinding() {
         <StyledRow>
           <StyledTextContainer>
             <H3>Pathfinding visualizer</H3>
-            <Spacer size={SpacerSize.medium}></Spacer>
+            <Spacer size={SpacerSize.small}></Spacer>
             <P>An application I built to better understand how</P>
             <P>the most common pathfinding algorithms work.</P>
             <Spacer size={SpacerSize.small}></Spacer>
             <P>#react#styled-components</P>
-            <Spacer size={SpacerSize.small}></Spacer>
             <p>github</p>
             <Spacer size={SpacerSize.small}></Spacer>
             <Button
