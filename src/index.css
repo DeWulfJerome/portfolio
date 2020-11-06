@@ -42,3 +42,9 @@ code {
 .dotGroup button.carousel__dot--selected {
   background: rgba(255, 255, 255, 0.69);
 }
+
+.social-icon {
+  color: #061444;
+  height: 20px;
+  padding-bottom: 0.5rem;
+}

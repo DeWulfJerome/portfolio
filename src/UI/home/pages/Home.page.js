@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from '../../general/containers/Header';
+import About from '../components/About';
+import Contact from '../components/Contact';
 import DistanceTracker from '../components/DistanceTracker';
 import Landing from '../components/Landing';
 import Pathfinding from '../components/Pathfinding';
@@ -13,6 +15,8 @@ export default function Home() {
       <Pathfinding></Pathfinding>
       <DistanceTracker></DistanceTracker>
       <Websites></Websites>
+      <About></About>
+      <Contact></Contact>
     </>
   );
 }

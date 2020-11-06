@@ -9,9 +9,16 @@ const StyledBrowser = styled.figure`
   background: ${GeneralStyles.colors.blue.light};
   box-shadow: 10px 30px 79px rgba(0, 0, 0, 0.31);
   overflow: hidden;
+
+  @media (max-width: 1000px) {
+    width: ${(props) => (props.small ? '600px' : '1011px')};
+    height: ${(props) => (props.small ? '354px' : '596px')};
+  }
+
   @media (max-width: 768px) {
-    width: 763px;
-    height: 450px;
+    ${(props) => (props.small ? 'margin: 0;' : null)}
+    width: ${(props) => (props.small ? '100%' : '763px')};
+    height: ${(props) => (props.small ? 'auto' : '450px')};
   }
 `;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -7,6 +7,7 @@ import H3 from './H3';
 import P from './P';
 import Button from './Button';
 import Spacer, { SpacerSize } from './Spacer';
+import { useMediaQuery } from '@react-hook/media-query';
 
 import leroux from '../../../assets/media/leroux.jpg';
 import makeawish from '../../../assets/media/makeawish.jpg';
@@ -19,19 +20,19 @@ const websites = [
       'Website for a Belgian chocolate artist',
       'Design & Development @ Flux'
     ],
-    buttonText: 'Go to site',
+    buttonText: 'Take a look',
     buttonUrl: 'https://fluxwebdesign3.be/customer/leroux/',
     browserImage: leroux
   },
   {
     title: 'Ugly',
     content: [
-      'Website for an Antwerp base real estate agency',
+      'Website for an Antwerp based real estate agency',
       'Online booking of visits',
       'Custom integration with their ERP',
       'Design & Development @ Flux'
     ],
-    buttonText: 'Go to site',
+    buttonText: 'Take a look',
     buttonUrl: 'https://ugly.be',
     browserImage: ugly
   },
@@ -42,25 +43,55 @@ const websites = [
       'Webshop and custom donation module with Mollie',
       'Design & Development @ Flux'
     ],
-    buttonText: 'Go to site',
+    buttonText: 'Take a look',
     buttonUrl: 'https://makeawish.be/home',
     browserImage: makeawish
   }
 ];
 
 export default function WebsiteSlider() {
+  const smallLaptopQueryMatches = useMediaQuery(
+    'only screen and (max-width: 1200px)'
+  );
+  const tabletQueryMatches = useMediaQuery(
+    'only screen and (max-width: 1000px)'
+  );
+
+  const phoneQueryMatches = useMediaQuery('only screen and (max-width: 768px)');
+  const [sliderWidth, setsliderWidth] = useState(800);
+  const [sliderHeight, setsliderHeight] = useState(450);
+
+  useEffect(() => {
+    let widthToSet = 800;
+    let heightToSet = 450;
+    if (smallLaptopQueryMatches) {
+      widthToSet = 800;
+      heightToSet = 550;
+    }
+    if (tabletQueryMatches) {
+      widthToSet = 800;
+      heightToSet = 700;
+    }
+    if (phoneQueryMatches) {
+      widthToSet = 360;
+      heightToSet = 420;
+    }
+    setsliderWidth(widthToSet);
+    setsliderHeight(heightToSet);
+  }, [smallLaptopQueryMatches, tabletQueryMatches, phoneQueryMatches]);
+
   return (
     <div>
       <CarouselProvider
         className="carouselProvider"
-        naturalSlideWidth={800}
-        naturalSlideHeight={450}
-        totalSlides={3}
+        naturalSlideWidth={sliderWidth}
+        naturalSlideHeight={sliderHeight}
+        totalSlides={websites.length}
       >
         <Slider className="carouselSlider">
           {websites.map((site, index) => {
             return (
-              <Slide index={index}>
+              <Slide key={index} index={index}>
                 <WebsiteSlide siteData={site}></WebsiteSlide>
               </Slide>
             );
@@ -79,8 +110,17 @@ const StyledCard = styled.div`
     rgba(255, 255, 255, 0.96)
   );
   border-radius: 40px;
+  box-sizing: border-box;
   padding: 3rem;
   min-width: 350px;
+
+  @media (max-width: 768px) {
+    display: none;
+    padding: 2rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const StyledWebsiteSlide = styled.div`
@@ -94,14 +134,30 @@ const StyledBrowserContainer = styled.div`
   left: 350px;
   top: 70px;
   z-index: -1;
+
+  @media (max-width: 1000px) {
+    left: 250px;
+  }
+
+  @media (max-width: 768px) {
+    left: 0;
+    right: 0;
+    top: 100px;
+  }
 `;
 
 const StyledBrowserImage = styled.img`
   height: 100%;
   width: auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const WebsiteSlide = ({ siteData }) => {
+  const phoneQueryMatches = useMediaQuery('only screen and (max-width: 768px)');
   return (
     <StyledWebsiteSlide>
       <div>
@@ -109,8 +165,8 @@ const WebsiteSlide = ({ siteData }) => {
         <StyledCard>
           <H3>{siteData.title}</H3>
           <Spacer size={SpacerSize.small}></Spacer>
-          {siteData.content.map((line) => {
-            return <P>{line}</P>;
+          {siteData.content.map((line, index) => {
+            return <P key={index}>{line}</P>;
           })}
           <Spacer size={SpacerSize.small}></Spacer>
           {siteData.buttonText && (
@@ -123,7 +179,14 @@ const WebsiteSlide = ({ siteData }) => {
           )}
         </StyledCard>
       </div>
-      <StyledBrowserContainer>
+      <StyledBrowserContainer
+        onClick={() => {
+          console.log('clicked');
+          if (phoneQueryMatches) {
+            window.open(siteData.buttonUrl);
+          }
+        }}
+      >
         <Browser small>
           <StyledBrowserImage src={siteData.browserImage}></StyledBrowserImage>
         </Browser>
