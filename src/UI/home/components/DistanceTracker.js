@@ -8,6 +8,7 @@ import H3 from '../../general/components/H3';
 import P from '../../general/components/P';
 import Watch from '../../general/components/Watch';
 import DistanceTrackerApp from './DistanceTrackerApp';
+import { ReactComponent as GithubLogo } from '../../../assets/media/github.svg';
 
 const StyledSection = styled.section`
   background-color: ${GeneralStyles.colors.blue.dark};
@@ -44,6 +45,17 @@ const StyledTextColumn = styled.div`
   }
 `;
 
+const StyledAnchor = styled.a`
+  text-decoration: none;
+  * {
+    transition: opacity 0.3s ease;
+  }
+  &:hover * {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
 export default function DistanceTracker() {
   return (
     <StyledSection>
@@ -70,7 +82,13 @@ export default function DistanceTracker() {
             <P darkBackground>set points on my home golf course.</P>
             <Spacer size={SpacerSize.small}></Spacer>
             <P darkBackground>#tizen#vanillajavascript</P>
-            github
+            <Spacer size={SpacerSize.small}></Spacer>
+            <StyledAnchor
+              href="https://github.com/DeWulfJerome/pathfinding"
+              target="blank"
+            >
+              <GithubLogo class="social-icon social-icon-white"></GithubLogo>
+            </StyledAnchor>
           </StyledTextColumn>
         </StyledRow>
         <Spacer size={GeneralStyles.padding.huge}></Spacer>

@@ -46,10 +46,10 @@ const StyledIconContainer = styled.div`
 const StyledAnchor = styled.a`
   color: ${GeneralStyles.colors.blue.dark};
   text-decoration: none;
-  h4 {
+  * {
     transition: color 0.3s ease;
   }
-  &:hover h4 {
+  &:hover * {
     cursor: pointer;
     color: ${GeneralStyles.colors.blue.medium};
   }
@@ -72,29 +72,29 @@ export default function Contact() {
         <PaddedContainer>
           <StyledRow>
             <StyledIconContainer>
-              <FacebookLogo className="social-icon"></FacebookLogo>
               <StyledAnchor
                 href="https://www.facebook.com/jerome.dewulf/"
                 target="blank"
               >
+                <FacebookLogo className="social-icon"></FacebookLogo>
                 <H4>Facebook</H4>
               </StyledAnchor>
             </StyledIconContainer>
             <StyledIconContainer>
-              <LinkedinLogo className="social-icon"></LinkedinLogo>
               <StyledAnchor
                 href="https://www.linkedin.com/in/jerome-de-wulf-772919153/"
                 target="blank"
               >
+                <LinkedinLogo className="social-icon"></LinkedinLogo>
                 <H4>LinkedIn</H4>
               </StyledAnchor>
             </StyledIconContainer>
             <StyledIconContainer>
-              <InstagramLogo className="social-icon"></InstagramLogo>
               <StyledAnchor
                 href="https://www.instagram.com/jerome.dewulf/"
                 target="blank"
               >
+                <InstagramLogo className="social-icon"></InstagramLogo>
                 <H4>Instagram</H4>
               </StyledAnchor>
             </StyledIconContainer>

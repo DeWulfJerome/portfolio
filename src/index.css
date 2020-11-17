@@ -47,4 +47,9 @@ code {
   color: #061444;
   height: 20px;
   padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon-white {
+  color: #fff;
 }

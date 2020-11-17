@@ -12,6 +12,7 @@ import Browser from '../../general/components/Browser';
 import pathfindingPhone from '../../../assets/media/pathfindingPhone.png';
 import pathfindingBrowser from '../../../assets/media/pathfindingBrowser.png';
 import GeneralStyles from '../../../assets/styles/general-styles';
+import { ReactComponent as GithubLogo } from '../../../assets/media/github.svg';
 
 const StyledRow = styled.div`
   display: flex;
@@ -77,6 +78,18 @@ const StyledPhoneContainer = styled.div`
   }
 `;
 
+const StyledAnchor = styled.a`
+  color: ${GeneralStyles.colors.blue.dark};
+  text-decoration: none;
+  * {
+    transition: color 0.3s ease;
+  }
+  &:hover * {
+    cursor: pointer;
+    color: ${GeneralStyles.colors.blue.medium};
+  }
+`;
+
 export default function Pathfinding() {
   return (
     <section id="Portfolio">
@@ -90,7 +103,13 @@ export default function Pathfinding() {
             <P>the most common pathfinding algorithms work.</P>
             <Spacer size={SpacerSize.small}></Spacer>
             <P>#react#styled-components</P>
-            <p>github</p>
+            <Spacer size={SpacerSize.small}></Spacer>
+            <StyledAnchor
+              href="https://github.com/DeWulfJerome/pathfinding"
+              target="blank"
+            >
+              <GithubLogo class="social-icon"></GithubLogo>
+            </StyledAnchor>
             <Spacer size={SpacerSize.small}></Spacer>
             <Button
               text="Check it out"
