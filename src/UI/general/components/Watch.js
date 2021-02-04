@@ -13,6 +13,10 @@ const StyledWatch = styled.figure`
   user-select: none;
   overflow: hidden;
   box-shadow: 10px 10px 52px rgba(162, 156, 156, 0.42);
+
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export default function Watch({ children }) {

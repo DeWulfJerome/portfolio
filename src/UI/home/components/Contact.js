@@ -16,6 +16,14 @@ const PaddedContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 3rem 0;
+
+  @media (max-width: 768px) {
+    text-align: center;
+
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 const StyledBorder = styled.div`
@@ -52,6 +60,12 @@ const StyledAnchor = styled.a`
   &:hover * {
     cursor: pointer;
     color: ${GeneralStyles.colors.blue.medium};
+  }
+
+  @media (max-width: 768px) {
+    h4 {
+      font-size: 1rem;
+    }
   }
 `;
 

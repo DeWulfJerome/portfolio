@@ -40,6 +40,11 @@ const StyledImage = styled.img`
   width: auto;
   border-radius: 20px;
   box-shadow: 10px 10px 52px rgba(0, 0, 0, 0.16);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export default function About() {

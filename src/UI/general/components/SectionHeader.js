@@ -12,6 +12,10 @@ const StyleSectionheader = styled.h2`
   position: absolute;
   color: ${(props) =>
     props.darkBackground ? 'rgba(255,255,255,0.06)' : 'rgba(6,20,68, .02)'};
+
+  @media (max-width: 768px) {
+    left: -60px;
+  }
 `;
 
 export default function SectionHeader({ children, darkBackground }) {
